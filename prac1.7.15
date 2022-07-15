@@ -1,0 +1,899 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+/*int main()
+{
+    int n1 =4294967295;
+    unsigned n2 =4294967295;
+    int m = 2147483647;
+    printf("作为有符号int类型输出：n1=%d, n2=%d\n",n1,n2);
+    printf("作为无符号int类型输出：n1=%u, n2=%u\n",n1,n2);
+    printf("m=%d\n",m);
+    m=m+1;
+    printf("m+1=%d\n",m);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int i =5,j =7,b;
+    b=i/j;
+    printf("%d",b);
+    return 0;
+}
+*/
+
+ /*
+ int main()
+ {
+     char a ='a';
+     int i=3,j=5,b;
+     float x =3.5;
+     double y = 5.0,z;
+     printf("%f",y+=i-=j*=++x);
+     return 0;
+ }
+*/
+
+/*
+int main()
+{
+    int a=100;
+    printf("%5d",a);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    double a,b,c,d,p,q,x1,x2;
+    printf("Input a,b,c");
+    scanf("%lf%lf%lf",&a,&b,&c);
+    d=b*b-4*a*c;
+    p=-b/(2*a);
+    q=sqrt(d)/(2*a);
+    x1=p+q;
+    x2=p-q;
+    printf("x1=%.2f,x2=%.2f",x1,x2);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int c1,c2;
+    c1=65;
+    c2=66;
+    printf("%c%c",c1,c2);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    #define PI 3.14
+    double r,h,m1,s1,v2,s2;
+    printf("Input r,h ");
+    scanf("%lf%lf",&r,&h);
+    m1 = 2*PI*r;
+    s1=PI*r*r;
+    v2=(4/3)*PI*r*r*r;
+    s2=s1*h;
+    printf("%lf %lf %lf %lf",m1,s1,v2,s2);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int d,p;
+    double r,m,x,y;
+    printf("Input d,p,r ");
+    scanf("%d%d%lf",&d,&p,&r);
+    x=log(p/(p-d*r));
+    y=log(1+r);
+    m=x/y;
+    printf("%.1f",m);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int x;
+    printf("Input an integer\n");
+    scanf("%d",&x);
+    if(x<0)
+        x=-x;
+    printf("|x|=%d",x);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int a,b,c;
+    printf("Input integer(a b)\n");
+    scanf("%d%d",&a,&b);
+    if(a<b)
+    {
+        c=a;
+        a=b;
+        b=c;
+    }
+    printf("%d,%d",a,b);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int x,y;
+    printf("Input integer x\n");
+    scanf("%d",&x);
+    if(x<0)
+        y=-1;
+    else if(x==0)
+        y=0;
+    else
+        y=1;
+    printf("%d",y);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int x,y;
+    printf("Input integer x\n");
+    scanf("%d",&x);
+    if(x<=0)
+    {
+        if(x<0)
+            y=-1;
+        else
+            y=0;
+    }
+    else
+        y=1;
+    printf("%d",y);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int x,y,max;
+    printf("Input integer(x y)\n");
+    scanf("%d%d",&x,&y);
+    max=x>y?x:y;
+    printf("max=%d\n",max);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    double a,b,c,d,p,q;
+    printf("Input a,b,c\n");
+    scanf("%lf%lf%lf",&a,&b,&c);
+    d=b*b-4*a*c;
+    p=-b/(2*a);//这个括号会影响算术结果
+    if(fabs(a)<1e-6)//其等价于 a==0,因为实数在计算和储存时有误差
+        printf("Error:a can not be 0!\n");
+    else if(fabs(d)<1e-6)
+        printf("Two same roots:%.4f\n",p);
+        else if(d>0)
+        {
+            q=sqrt(d)/(2*a);
+            printf("Two real roots:%.4f,%.4f\n",p+q,p-q);
+        }
+        else
+        {
+            q=sqrt(-d)/(2*a);
+            printf("Two complex roots:%.4f+%.4fi,%.4f+%.4fi\n",p,q,p,q);
+        }
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int year,month,day,error;
+    error = 1;
+    printf("Input year,month,day\n");
+    scanf("%d%d",&year,&month);
+    switch(month)
+    {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        day = 31;
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        day = 30;
+        break;
+    case 2:
+        if(year%4==0&&year%100!=0||year%400==0)
+            day =29;
+        else
+            day =28;
+        break;
+    default:
+        error = 0;
+    }
+
+    if(error==0)
+        printf("Error!");
+    else
+        printf("%d-%02d has %d days!",year,month,day);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int n1,n2,answer;
+    srand(time(0));//根据时间输出随机数种子，srand为void类型，（）内为unsigned interest int类型
+    n1=rand()%100;//根据随机数种子输出随机数，rand为int类型
+    n2=rand()%100;//根据随机数种子输出随机数
+    printf("%d+%d=?\n",n1,n2);
+    printf("Input your answer\n");
+    scanf("%d",&answer);
+    if(answer==n1+n2)
+        printf("Correct!\n");
+    else
+        printf("Error\n");
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    double x,y;
+    printf("Input x\n");
+    scanf("%lf",&x);
+    if(x<1)
+        y=x;
+    else if(x<10)
+        y=2*x-1;
+    else
+        y=3*x-11;
+    printf("%.4f",y);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int x,y,z,t;
+    printf("Input integer x y z\n");
+    scanf("%d%d%d",&x,&y,&z);
+    if(y>x)
+    {
+        t=y;
+        y=x;
+        x=t;
+    }
+    if(z>x)
+    {
+        t=z;
+        z=x;
+        x=t;
+    }
+    printf("max=%d",x);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    char a;
+    double x;
+    printf("Input x\n");
+    scanf("%lf",&x);
+    if(x>=90&&x<=100)
+        a='A';
+    else if(x>=80&&x<=89)
+        a='B';
+    else if(x>=70&&x<=79)
+        a='C';
+    else if(x>=60&&x<=69)
+        a='D';
+    else if(x>=0&&x<=60)
+        a='E';
+    else
+        printf("Error!");
+    printf("%c",a);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int x;
+    double score;
+    char ch;
+    printf("Input score\n");
+    scanf("%lf",&score);
+    x=score/10;
+    switch(x)
+    {
+        case 9:
+            ch='A';
+            break;
+        case 8:
+            ch='B';
+            break;
+        case 7:
+            ch='C';
+            break;
+        case 6:
+            ch='D';
+            break;
+        case 5:
+        case 4:
+        case 3:
+        case 2:
+        case 1:
+        case 0:
+            ch='E';
+            break;
+        default:
+            printf("Error!");
+    }
+    printf("%c",ch);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    char a,b,c;
+    printf("Input a\n");
+    a= getchar( );
+    b=a-1;
+    c=a+1;
+    if(a>'0'&&a<'9')
+        printf("%c,%c",b,c);
+    if(a=='0')
+    {
+        printf("第1个数字\n");
+        printf("后一个数字为%c",c);
+    }
+    if(a=='9')
+    {
+        printf("最后1个数字\n");
+        printf("前一个数字为%c",b);
+    }
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int hour,minute,second;
+    printf("Input hour,minute,second\n");
+    scanf("%d%d%d",&hour,&minute,&second);
+    second=second+20;
+    if(second>=60)
+    {
+        minute=minute+1;
+        second=second-60;
+        if(minute>=60)
+        {
+            hour=hour+1;
+            minute=minute-60;
+        }
+    }
+    printf("20s后的时间为：%d时%d分%d秒",hour,minute,second);
+    return 0;
+}
+*/
+
+
+//循环结构
+
+/*
+int main()
+{
+    int count=0;
+    char ch;
+    printf("Input your answer\n");
+    ch=getchar();
+    while(ch!='\n')
+    {
+        if(ch>'0'&&ch<'9')
+            count=count+1;
+        ch=getchar();//循环中要能输入 ，不然死循环了或是把while那一行的改成 while((ch=getchar())!='\n')
+    }
+    printf("%d",count);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int i,j;\
+    for(i=1;i<=9;i++)
+    {
+
+        for(j=1;j<=i;j++)
+        {
+            printf("%d*%d=%d ",i,j,i*j);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int i,n,is_prime,k;
+    printf("Input a number(n>1)\n");
+    scanf("%d",&n);
+    is_prime=1;
+    k=sqrt(n);
+    for(i=2;i<=k;i++)
+    {
+        if(n%i==0)
+        {
+            is_prime=0;
+            break;
+        }
+    }
+    if(is_prime)
+        printf("%d is prime number",n);
+    else
+        printf("%d is not prime number",n);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int i,count;
+    count = 0;
+    for(i=100;i<=1000;i++)
+    {
+        if(i%7==0)
+        {
+            continue;
+        }
+        count++;
+    }
+    printf("%d",count);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int sign=1;
+    double pi=0.0,n=1.0,item=1.0;
+    while(fabs(item)>1e-6)
+    {
+        pi=pi+item;
+        n=n+2;
+        sign=-sign;
+        item=sign/n;
+    }
+    pi=pi*4;
+    printf("pi=%.8f\n",pi);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int sign=1;
+    double pi=0.0,n=1.0,item=1.0;
+    do
+    {
+        pi=pi+item;
+        n=n+2;
+        sign=-sign;
+        item=sign/n;
+    }
+    while(fabs(item)>1e-6);
+    pi=pi*4;
+    printf("pi=%.8f\n",pi);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int f,f1=1,f2=1,i;
+    printf("%12d%12d",f1,f2);
+    for(i=3;i<=40;i++)
+    {
+        f=f1+f2;
+        printf("%12d",f);
+        if(i%4==0)
+            printf("\n");
+        f1=f2;
+        f2=f;
+    }
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int i,n,count=0,is_prime;
+    for(n=2;n<=100;n++)
+    {
+        is_prime=1;
+        for(i=2;i<=sqrt(n);i++)
+    {
+        if(n%i==0)
+        {
+            is_prime=0;
+            break;
+        }
+    }
+        if(is_prime)
+        {
+            printf("%6d",n);
+            count++;
+        }
+        if(count%10==0)
+        {
+            printf("\n");
+        }
+    }
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int i,n,sum;
+    for(n=1;n<=1000;n++)
+    {
+        sum=0;
+        for(i=1;i<n;i++)
+        {
+            if(n%i==0)
+                sum=sum+i;
+        }
+        if(n==sum)
+        {
+            printf("%d\s factors:",n);
+            for(i=1;i<n;i++)
+            {
+                if(n%i==0)
+                {
+                    printf("%2d",i);
+                }
+            }
+            printf("\n");
+        }
+    }
+    return 0;
+}
+*/
+
+/*
+int main()//求最大公约数第一种方法：逻辑分析
+{
+    int m,n,max,min,i;
+    printf("Input m,n\n");
+    scanf("%d%d",&m,&n);
+    int t=m<n?m:n;
+    for(i=t;i>=1;i--)
+    {
+        if(m%i==0&&n%i==0)
+            break;
+    }
+    printf("%d\n",i);
+    return 0;
+}
+*/
+
+/*
+int main()//求最大公约数 第二种方法：辗转相除法：当余数为0时，结束循环
+{
+    int m,n,i;
+    printf("Input m,n\n");
+    scanf("%d%d",&m,&n);
+    while(i=m%n)
+    {
+        m=n;
+        n=i;
+    }
+    printf("%d\n",n);
+    return 0;
+}
+*/
+
+/*
+int main()//求最小公倍数
+{
+    int m,n,i=1,a,b=1;
+    printf("Input m,n\n");
+    scanf("%d%d",&m,&n);
+    while(b!=0)//如果不是用do-while循环 ，b一开始需要人为赋值，不然电脑会赋随机值进不去
+    {
+        a=m*i;
+        b=a%n;
+        i++;
+    }
+    printf("%d",a);
+    return 0;
+}
+*/
+
+/*
+int main()//用最大公约数来求最小公倍数 min=m*n/max
+{
+    int m,n,i,min,h;
+    printf("Input m,n\n");      //最
+    scanf("%d%d",&m,&n);        //大
+    h=m*n;
+    while(i=m%n)                //公
+    {                           //约
+
+        m=n;                    //数
+        n=i;                    //为
+    }                           //n
+    printf("%d\n",n);
+    min=h/n;                    //最小公倍数
+    printf("%d\n",min);
+    return 0;
+}
+*/
+
+/*
+int main()
+{
+    int count1=0,count2=0,count3=0,count4=0;
+    char a;
+    printf("Input char\n");
+    a=getchar();
+    while(a!='\n')
+    {
+        if(a>='A'&&a<='z')
+            count1++;
+        else if(a>='0'&&a<='9')
+            count2++;
+        else if(a==' ')
+            count3++;
+        else
+            count4++;
+        a=getchar();
+    }
+    printf("%d\n%d\n%d\n%d",count1,count2,count3,count4);
+    return 0;
+}
+*/
+
+/*
+int main()//求水仙花数
+{
+    int i,a,b,c,count=0;
+    for(i=100;i<=999;i++)
+    {
+        a=i/100;//百位
+        b=i%100/10;//十位
+        c=i%100%10;//个位
+        if((a*a*a)+(b*b*b)+(c*c*c)==i)
+                {
+                    count=1;
+                    if(count=1)
+                            printf("%d\n",i);
+                }
+    }
+    return 0;
+}
+*/
+
+/*
+int main()//求分数序列前20项的和
+{
+    int i,f,f1=1,f2=1;
+    double x,y=0,m,n;//m,n必须要用double类型，不然会使得x变成整形m,n相除的数字
+    for(i=1;i<=20;i++)
+    {
+        f=f1+f2;
+        f1=f2;
+        f2=f;
+        n=f1;        //n给的是f1的值而非f2的值，注意
+        m=f2;        //m给f和f2的值都是一样的
+        x=m/n;
+        y=y+x;
+    }
+    printf("%.4f",y);
+    return 0;
+}
+*/
+
+/*
+int main()//小球从自由高度落下，求最后弹起高度与走过的距离
+{
+    double h=100,x,j;
+    int i;
+    for(i=1;i<=10;i++)
+    {
+        j=h;
+        h=h/2;
+        if(i==1)
+            x=x+j;       //第一次落地没有上升走过的距离，所以j不用乘以2
+        else
+            x=x+2*j;
+    }
+    printf("%.4f\n",h);
+    printf("%.4f",x);
+    return 0;
+}
+*/
+
+/*
+int main()//用迭代法求x的平方根
+{
+    double a,x1,x2;
+    printf("Input a\n");
+    scanf("%lf",&a);
+    x2=1.0;
+    while(fabs(x2-x1)>=1e-5)
+    {
+        x1=x2;
+        x2=1.0/2.0*(x1+a/x1);//如果前面写成1/2是错的，会按整数形式相除，必须要写成小数相除的模式
+    }
+    printf("%lf",x2);
+    return 0;
+}
+*/
+
+/*
+int main()//打印n行字符图案
+{
+    int i,j,n;
+    printf("Input n\n");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=i;j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    for(i=n-1;i>=1;i--)
+    {
+        for(j=i;j>=1;j--)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+*/
+
+/*
+int main()//求勾股数
+{
+    int a,b,c;
+    for(a=1;a<=20;a++)
+    {
+       for(b=a+1;b<=20;b++)//使b>a，就不会出现重复的勾股数
+       {
+           for(c=b+1;c<=20;c++)//优化代码搜索
+           {
+               if(a*a+b*b==c*c)
+               printf("a=%d,b=%d,c=%d\n",a,b,c);
+           }
+       }
+    }
+    return 0;
+}
+*/
+
+
+//数组
+/*
+int main()//1.数组的引用：逆序排列输出数组
+{
+    int a[10];
+    int i,temp;
+    for(i=0;i<10;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<=4;i++)
+    {
+        temp=a[i];
+        a[i]=a[9-i];
+        a[9-i]=temp;
+    }
+    for(i=0;i<10;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    return 0;
+}
+*/
+
+/*
+int main()//2.一维数组的初始化：使用数组存放Fibonacci数列的前20项
+{
+    int fib[20]={1,1};
+    int i;
+    for(i=2;i<20;i++)
+    {
+        fib[i]=fib[i-2]+fib[i-1];
+    }
+    for(i=0;i<20;i++)
+    {
+        printf("%6d",fib[i]);
+        if((i+1)%5==0)
+            printf("\n");
+    }
+    return 0;
+}
+*/
+
+/*
+int main()//3.一维数组程序举例：从键盘输入10个整数，统计其最大值的出现次数
+{
+    int a[10];
+    int i,max,count=0;
+    printf("Input integer\n");
+    for(i=0;i<10;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    max=a[0];
+    for(i=1;i<10;i++)
+    {
+        if(a[i]>max)
+            max=a[i];
+    }
+    for(i=0;i<10;i++)//i为0而不是1,当max=a[0]自己也要算一次
+    {
+        if(max==a[i])
+            count++;
+    }
+    printf("%d,%d",max,count);
+    return 0;
+}
+*/
+
